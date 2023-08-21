@@ -10,13 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 _moveInput;
     Rigidbody2D _rb = default;
 
-    // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
