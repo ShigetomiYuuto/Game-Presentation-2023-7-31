@@ -3,8 +3,14 @@ using UnityEngine;
 public class ObjectMouseDrag : MonoBehaviour
 {
     private Vector3 offset;
+    private Rigidbody2D _rb;
+    private float _gravity = 0f;
 
-    void OnMouseDown()//マウスでゲームオブジェクトをクリックしたときに呼び出されるメソッド
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
+    void OnMouseDown()//マウスでゲームオブジェクトをクリックしたときに呼び出されるメソッド   参考元　https://soft-rime.com/post-11206/
     {
         offset = gameObject.transform.position - GetMouseWorldPos();
     }
@@ -12,6 +18,14 @@ public class ObjectMouseDrag : MonoBehaviour
     void OnMouseDrag()//マウスでゲームオブジェクトをドラッグしているときに呼び出されるときに呼ばれるメソッド
     {
         transform.position = GetMouseWorldPos() + offset;
+        _gravity = _rb.gravityScale;
+        _rb.gravityScale = 0;
+    }
+
+    private void OnMouseUp()
+    {
+        transform.position = GetMouseWorldPos() + offset;
+        _rb.gravityScale = _gravity;
     }
 
     private Vector3 GetMouseWorldPos()//マウスカーソルの座標をスクリーン座標からワールド座標に変換するメソッド
