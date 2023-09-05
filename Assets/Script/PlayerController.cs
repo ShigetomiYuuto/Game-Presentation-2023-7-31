@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _moveSpeed;
     [SerializeField] Vector2 _moveInput;
     [SerializeField] float _gr;
+    [SerializeField] float _jumpP;
+    [SerializeField] bool _isGrounded = true;
     Rigidbody2D _rb = default;
 
     void Start()
@@ -19,6 +21,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == ("Ground"))
+        {
+            _isGrounded = true;
+        }
     }
 
     void Move()
@@ -29,5 +40,17 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump (InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (_isGrounded)
+            {
+                _rb.AddForce(Vector2.up * _jumpP, ForceMode2D.Impulse);
+                _isGrounded = false;
+            }
+        }
     }
 }
