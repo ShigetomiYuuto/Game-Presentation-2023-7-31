@@ -13,13 +13,13 @@ public class ObjectMouseDrag : MonoBehaviour
     void OnMouseDown()//マウスでゲームオブジェクトをクリックしたときに呼び出されるメソッド   参考元　https://soft-rime.com/post-11206/
     {
         offset = gameObject.transform.position - GetMouseWorldPos();
+        _gravity = _rb.gravityScale;
+        _rb.gravityScale = 0;
     }
 
     void OnMouseDrag()//マウスでゲームオブジェクトをドラッグしているときに呼び出されるときに呼ばれるメソッド
     {
         transform.position = GetMouseWorldPos() + offset;
-        _gravity = _rb.gravityScale;
-        _rb.gravityScale = 0;
     }
 
     private void OnMouseUp()
