@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed;
     [SerializeField] Vector2 _moveInput;
-    [SerializeField] float _gr;
     [SerializeField] float _jumpP;
     [SerializeField] bool _isGrounded = true;
     Rigidbody2D _rb = default;
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        _rb.velocity = new Vector2(_moveInput.x * _moveSpeed, _gr);
+        _rb.AddForce(Vector2.right * _moveInput * _moveSpeed, ForceMode2D.Force);
     }
 
     public void OnMove(InputAction.CallbackContext context)
