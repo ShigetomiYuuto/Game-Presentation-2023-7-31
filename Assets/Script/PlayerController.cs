@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool _isGrounded = true;
     [SerializeField] GameObject _gameManager = null;
     public AudioClip _sound1;
+    public AudioClip _sound2;
     Rigidbody2D _rb = default;
     AudioSource _audioSource;
 
@@ -53,12 +51,13 @@ public class PlayerController : MonoBehaviour
             {
                 _rb.AddForce(Vector2.up * _jumpP, ForceMode2D.Impulse);
                 _isGrounded = false;
+                _audioSource.PlayOneShot(_sound1);
             }
         }
     }
     public void OnPause(InputAction.CallbackContext context)
     {
-        //_audioSource.PlayOneShot(_sound1);
+        _audioSource.PlayOneShot(_sound2);
         if (_gameManager.GetComponent<PausedManager>()._isPaused)
         {
             _gameManager.GetComponent<PausedManager>()._isPaused = false;
