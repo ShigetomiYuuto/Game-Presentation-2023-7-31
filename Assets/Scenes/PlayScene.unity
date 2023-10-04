@@ -1283,11 +1283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1498667106687736405, guid: 35f43cc7a9bf92d40b0442f52d7a88bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.971542
+      value: -65.38
       objectReference: {fileID: 0}
     - target: {fileID: 1498667106687736405, guid: 35f43cc7a9bf92d40b0442f52d7a88bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.36
+      value: 16.91
       objectReference: {fileID: 0}
     - target: {fileID: 1498667106687736405, guid: 35f43cc7a9bf92d40b0442f52d7a88bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2265,6 +2265,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e97f1055-34a9-46fc-8294-f729f6b0a4f5
     m_ActionName: PlayScene/Pause[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1636901832}
+        m_TargetAssemblyTypeName: RotateObject, Assembly-CSharp
+        m_MethodName: OnRotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a20c095-a84d-4b26-b9ac-1f9a0735b660
+    m_ActionName: PlayScene/Rotate[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayScene
@@ -4103,6 +4119,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1496770274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9040636129332694474, guid: 795496972dcea9b4db3c25ec8e83114a, type: 3}
+  m_PrefabInstance: {fileID: 1081672979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1496770279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496770274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 001ae50ccf684f2499cb7a1b5f5661aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1498200715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4381,6 +4414,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 795496972dcea9b4db3c25ec8e83114a, type: 3}
+--- !u!1 &1636901831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1498667106687736402, guid: 35f43cc7a9bf92d40b0442f52d7a88bb, type: 3}
+  m_PrefabInstance: {fileID: 511561409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1636901832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636901831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 001ae50ccf684f2499cb7a1b5f5661aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1652356553
 GameObject:
   m_ObjectHideFlags: 0
