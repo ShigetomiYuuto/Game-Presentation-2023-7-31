@@ -21,8 +21,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
-        
+        if (_isGrounded)
+        {
+            Move();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        _rb.AddForce(Vector2.right * _moveInput * _moveSpeed, ForceMode2D.Force);
+        _rb.velocity = new Vector2(_moveInput.x * _moveSpeed, _rb.velocity.y);
     }
 
     public void OnMove(InputAction.CallbackContext context)

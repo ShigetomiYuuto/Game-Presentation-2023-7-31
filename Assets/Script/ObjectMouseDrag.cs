@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ObjectMouseDrag : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class ObjectMouseDrag : MonoBehaviour
     private Rigidbody2D _rb;
     private float _gravity = 0f;
     private Collider2D _collider;
+    private 
     bool _isDragging = true;
     private void Start()
     {
@@ -19,7 +21,7 @@ public class ObjectMouseDrag : MonoBehaviour
         _offset = gameObject.transform.position - GetMouseWorldPos();
         _gravity = _rb.gravityScale;
         _rb.gravityScale = 0;
-        _collider.isTrigger = true;
+        _collider.enabled = false;
         _startPos = transform.position;
     }
 
@@ -32,7 +34,7 @@ public class ObjectMouseDrag : MonoBehaviour
     {
         transform.position = GetMouseWorldPos() + _offset;
         _rb.gravityScale = _gravity;
-        _collider.isTrigger = false;
+        _collider.enabled = true;
         if (!_isDragging )
         {
             transform.position = _startPos;
@@ -52,7 +54,18 @@ public class ObjectMouseDrag : MonoBehaviour
         if (collision.gameObject.tag == "PlayArea")
         {
             _isDragging = false;
-            Debug.Log("èoÇΩ");
+        }
+    }
+
+    public void OnRotate()
+    {
+        var _current = Mouse.current;
+        var rightButton = _current.rightButton;
+
+        if (rightButton.wasPressedThisFrame)
+        {
+            transform.Rotate(0, 0, 90);
+            Debug.Log("kaitenn");
         }
     }
 }
